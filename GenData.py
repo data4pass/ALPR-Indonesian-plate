@@ -20,8 +20,7 @@ def main():
     if args.get("image", True):
         imgTrainingNumbers = cv2.imread(args["image_train"]) # read in training numbers image
         if imgTrainingNumbers is None:
-            print "error: image not read from file \n\n"        # print error message to std out
-            os.system("pause")                                  # pause so user can see error message
+            os.system("echo Press enter to continue; read dummy;")
             return
     else:
         print("Please add -d or --image_train argument")
@@ -41,7 +40,7 @@ def main():
 
     imgThreshCopy = imgThresh.copy()        # make a copy of the thresh image, this in necessary b/c findContours modifies the image
 
-    imgContours, npaContours, npaHierarchy = cv2.findContours(imgThreshCopy,        # input image, make sure to use a copy since the function will modify this image in the course of finding contours
+    npaContours, npaHierarchy = cv2.findContours(imgThreshCopy,        # input image, make sure to use a copy since the function will modify this image in the course of finding contours
                                                  cv2.RETR_EXTERNAL,                 # retrieve the outermost contours only
                                                  cv2.CHAIN_APPROX_SIMPLE)           # compress horizontal, vertical, and diagonal segments and leave only their end points
 
