@@ -12,8 +12,8 @@ An ALPR (Automatic License Plate Recognition) program for Indonesian plate numbe
 `python Main.py -v /path/to/video` Recognize a video.
 
 
-## Retrain training data of classifications.txt and flattened_images.txt
-`python GenData.py -d /train_image/train2.png` Where `train2.png` is the image used for the training.
+## Retrain training data
+`python GenData.py -d /train_image/train2.png` where `train2.png` is the image used for the training.
 
 The training will produce two outputs: `classifications.txt` and `flattened_images.txt`.
 
