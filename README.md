@@ -3,7 +3,7 @@
 An ALPR (Automatic License Plate Recognition) program for Indonesian plate numbers. Forked from [ALPR-Indonesian-plate](https://github.com/muchlisinadi/ALPR-Indonesian-plate) by [muchlisinadi](https://github.com/muchlisinadi/ALPR-Indonesian-plate).
 
 ## Usage
-`python Main.py -c directoryFileImage`  Calibrate camera and threshold.
+`python Main.py -c /path/to/image`  Calibrate image.
 
 `python Main.py`  Use with camera.
 
@@ -17,10 +17,10 @@ An ALPR (Automatic License Plate Recognition) program for Indonesian plate numbe
 
 The training will produce two outputs: `classifications.txt` and `flattened_images.txt`.
 
-Press `esc` to cancel and exit the training.
+Press `Esc` to cancel and exit the training.
 
 ## Check if the classification is good enough
-    python TrainAndTestData.py -d = train_image/train2.png
+    python TrainAndTestData.py -d /train_image/train2.png
 
 ## Invert an image
-    python invert_imageData.py -d = train_image/train2.png
+    python invert_imageData.py -d /train_image/train2.png
