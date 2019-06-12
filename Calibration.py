@@ -122,7 +122,7 @@ def calibration (image):
     imaged = imutils.translate(image, Xtrans, Ytrans)
     # Apply transform
     M = imutils.getTransform (w, h, rotationx, rotationy, rotationz, panX, panY, stretchX, dist)
-    imgOriginalScene = cv2.warpPerspective(imaged, M, (w,h),cv2.INTER_CUBIC or cv2.WARP_INVERSE_MAP)
+    imgOriginalScene = cv2.warpPerspective(imaged, M, (w,h))
 
     if (S == 1):
       imgGrayscale = pp.extractValue(imgOriginalScene)

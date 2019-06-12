@@ -22,7 +22,7 @@ def main():
         imgTrainingNumbers = cv2.imread(args["image_train"]) # read in training numbers image
 
         # resize picture if too big
-        if np.size(imgTrainingNumbers, 1) > 900:
+        if np.size(imgTrainingNumbers, 1) > 500:
             scale_percent = 50 # percent of original size
             width = int(imgTrainingNumbers.shape[1] * scale_percent / 100)
             height = int(imgTrainingNumbers.shape[0] * scale_percent / 100)

@@ -72,8 +72,8 @@ def transform (image):
   imheight = np.size(image, 0)
   imwidth = np.size(image, 1)
   M = getTransform (imwidth, imheight, CAL_VAL[2], CAL_VAL[3], CAL_VAL[4], CAL_VAL[5], CAL_VAL[6], CAL_VAL[7], CAL_VAL[8])
-#   transformed  = cv2.warpPerspective(image, M, (imwidth,imheight), cv2.INTER_CUBIC or cv2.WARP_INVERSE_MAP)
-  transformed  = cv2.warpPerspective(image, M, (imwidth,imheight))
+#   transformed  = cv2.warpPerspective(image, M, (imwidth,imheight), interpolation = cv2.INTER_CUBIC or cv2.WARP_INVERSE_MAP)
+  transformed  = cv2.warpPerspective(image, M, (imwidth, imheight))
   return transformed
 
 def detransform(image):
@@ -82,7 +82,7 @@ def detransform(image):
   imwidth = np.size(image, 1)
   M = getTransform (imwidth, imheight, (0-CAL_VAL[2]), (0-CAL_VAL[3]), (0-CAL_VAL[4]), (0-CAL_VAL[5]), (0-CAL_VAL[6]), (1-CAL_VAL[7]), (1-CAL_VAL[8]))
   #M = getTransform (imwidth, imheight, 0.0, 0.0, 0.0, 0, 0, 1.0,1.0)
-  detransformed  = cv2.warpPerspective(image, np.asarray(M), (imwidth,imheight),cv2.INTER_CUBIC or cv2.WARP_INVERSE_MAP)
+  detransformed  = cv2.warpPerspective(image, M, (imwidth, imheight))
   return detransformed
 
 def getTransform (w, h, rotationx, rotationy, rotationz, panX, panY, stretchX, dist):
