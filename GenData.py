@@ -69,6 +69,8 @@ def main():
         if cv2.contourArea(npaContour) > MIN_CONTOUR_AREA:          # if contour is big enough to consider
             [intX, intY, intW, intH] = cv2.boundingRect(npaContour)         # get and break out bounding rect
 
+            imgTrainingNumbers[np.where((imgTrainingNumbers == [0,0,255]).all(axis = 2))] = [0,255,0] # change red color to green for clarity
+
                                                 # draw rectangle around each contour as we ask user for input
             cv2.rectangle(imgTrainingNumbers,           # draw rectangle on original training image
                           (intX, intY),                 # upper left corner
