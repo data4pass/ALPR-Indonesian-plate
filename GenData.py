@@ -12,6 +12,7 @@ RESIZED_IMAGE_WIDTH = 20
 RESIZED_IMAGE_HEIGHT = 30
 
 ###################################################################################################
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("-d", "--image_train",
@@ -19,6 +20,15 @@ def main():
     args = vars(ap.parse_args())
     if args.get("image", True):
         imgTrainingNumbers = cv2.imread(args["image_train"]) # read in training numbers image
+
+        # resize START
+        scale_percent = 50 # percent of original size
+        width = int(imgTrainingNumbers.shape[1] * scale_percent / 100)
+        height = int(imgTrainingNumbers.shape[0] * scale_percent / 100)
+        dim = (width, height)
+        imgTrainingNumbers = cv2.resize(imgTrainingNumbers, dim, interpolation = cv2.INTER_AREA) 
+        # resize END
+
         if imgTrainingNumbers is None:
             os.system("echo Press enter to continue; read dummy;")
             return
