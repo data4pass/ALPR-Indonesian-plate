@@ -21,12 +21,13 @@ def main():
     if args.get("image", True):
         imgTrainingNumbers = cv2.imread(args["image_train"]) # read in training numbers image
 
-        # resize START
-        scale_percent = 50 # percent of original size
-        width = int(imgTrainingNumbers.shape[1] * scale_percent / 100)
-        height = int(imgTrainingNumbers.shape[0] * scale_percent / 100)
-        dim = (width, height)
-        imgTrainingNumbers = cv2.resize(imgTrainingNumbers, dim, interpolation = cv2.INTER_AREA) 
+        # resize picture if too big
+        if np.size(imgTrainingNumbers, 1) > 900:
+            scale_percent = 50 # percent of original size
+            width = int(imgTrainingNumbers.shape[1] * scale_percent / 100)
+            height = int(imgTrainingNumbers.shape[0] * scale_percent / 100)
+            dim = (width, height)
+            imgTrainingNumbers = cv2.resize(imgTrainingNumbers, dim, interpolation = cv2.INTER_AREA) 
         # resize END
 
         if imgTrainingNumbers is None:
