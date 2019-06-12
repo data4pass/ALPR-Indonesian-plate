@@ -4,14 +4,18 @@ An ALPR (Automatic License Plate Recognition) program for Indonesian plate numbe
 
 ## Usage
 `python Main.py -c directoryFileImage`  Calibrate camera and threshold.
+
 `python Main.py`  Use with camera.
+
 `python Main.py -i /path/to/image` Recognize an image.
+
 `python Main.py -v /path/to/video` Recognize a video.
+
 
 ## Retrain training data of classifications.txt and flattened_images.txt
 `python GenData.py -d /train_image/train2.png` Where `train2.png` is the image used for the training.
 
-Training will produce two outputs: `classifications.txt` and `flattened_images.txt`.
+The training will produce two outputs: `classifications.txt` and `flattened_images.txt`.
 
 Press `esc` to cancel and exit the training.
 
